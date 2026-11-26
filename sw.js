@@ -1,5 +1,5 @@
-// service worker of the 298 twin, build a660b38498c5: cache-first, so the app opens offline after the first visit
-const C = 'twin-298-a660b38498c5', FILES = ['./', './index.html', './manifest.webmanifest', './robots.txt', './icon-180.png', './icon-192.png', './icon-512.png'];
+// service worker of the 298 twin, build a681548213a0: cache-first, so the app opens offline after the first visit
+const C = 'twin-298-a681548213a0', FILES = ['./', './index.html', './wind.html', './manifest.webmanifest', './robots.txt', './icon-180.png', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', e => e.waitUntil(caches.open(C).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('twin-298-') && k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => { if (e.request.method !== 'GET') return; const u = new URL(e.request.url); if (u.origin !== location.origin) return;
